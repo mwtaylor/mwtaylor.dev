@@ -1,0 +1,6 @@
+.hugo_build.lock
+resources/_gen/
+.idea/
+node_modules/
+static/js/
+static/css/

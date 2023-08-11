@@ -1,0 +1,51 @@
+{{ define "content" }}
+    {{ $header_img := resources.GetMatch "images/intro-header.png" }}
+    {{ $me_img := resources.GetMatch "images/me.jpg" }}
+    <div class="container">
+        <div class="row bg-primary text-white pt-3 pb-4">
+            <div class="col-2 px-3">
+                <img src="{{ $me_img.RelPermalink}}" class="img-fluid rounded float-start" alt="">
+            </div>
+            <div class="col-10 ps-0">
+                <h1>Hi! I'm Michael and I develop software.</h1>
+                <h2>Professionally I have mostly worked on backend software for monitoring and testing. Personally
+                I love to experiment and learn new things. Here's some of the cool stuff I have done.</h2>
+            </div>
+        </div>
+        <div class="row bg-primary py-3">
+            <div class="col-6">
+                <div class="btn-group">
+                    <a class="btn btn-lg btn-primary text-white" rel="me" href="https://mwtaylor.social/@Michael">
+                        {{ $mastodon_image := resources.GetMatch "images/mastodon.svg" }}
+                        <img src="{{ $mastodon_image.RelPermalink}}" alt="Mastodon logo" width="30" height="30"> Follow me on Mastodon
+                    </a>
+                    <a class="btn btn-lg btn-primary text-white" href="https://github.com/mwtaylor">
+                        {{ $github_image := resources.GetMatch "images/github-mark.png" }}
+                        <img src="{{ $github_image.RelPermalink}}" alt="GitHub logo" width="30" height="30"> Find my code on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <img src="{{ $header_img.RelPermalink}}" class="img-fluid px-0" alt="">
+        </div>
+        <div class="row">
+            <h1>My Other Websites</h1>
+            {{ range (where .Site.RegularPages "Section" "websites") }}
+                <div class="col-3">
+                    <div class="card bg-white">
+                        <div class="card-header">
+                            {{ .Title }}
+                        </div>
+                        <div class="card-body">
+                            {{ .Content }}
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ .Params.link }}" class="btn btn-light stretched-link">{{ .Params.link }}</a>
+                        </div>
+                    </div>
+                </div>
+            {{ end }}
+        </div>
+    </div>
+{{ end }}
