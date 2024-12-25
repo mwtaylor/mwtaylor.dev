@@ -1,20 +1,22 @@
 {
-  "name": "mwtaylor-dev",
+  "name": "mwtaylor.dev",
   "version": "1.0.0",
-  "description": "",
+  "description": "My personal website showcasing projects I have worked on",
   "main": "index.js",
   "scripts": {
-    "css:compile": "node-sass --include-path node_modules --output-style compressed --source-map true --source-map-contents true --precision 6 assets/styles -o static/css/",
-    "js:build": "browserify assets/scripts/main.js -o static/js/main.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwtaylor/mwtaylor.dev.git"
   },
   "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "hugo-bin": "^0.102.0"
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mwtaylor/mwtaylor.dev/issues"
   },
-  "dependencies": {
-    "bootstrap": "^5.3.1",
-    "browserify": "^17.0.0",
-    "node-sass": "^8.0.0"
+  "homepage": "https://github.com/mwtaylor/mwtaylor.dev#readme",
+  "devDependencies": {
+    "hugo-extended": "^0.140.0"
   }
 }

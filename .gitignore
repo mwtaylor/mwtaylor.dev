@@ -1,5 +1,6 @@
 .hugo_build.lock
 resources/_gen/
+public/
 .idea/
 node_modules/
 static/js/
