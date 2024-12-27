@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/mwtaylor/mwtaylor.dev#readme",
   "devDependencies": {
-    "hugo-extended": "^0.140.0"
+    "hugo-extended": "^0.140.0",
+    "sass": "^1.83.0",
+    "sass-embedded": "^1.83.0"
   }
 }

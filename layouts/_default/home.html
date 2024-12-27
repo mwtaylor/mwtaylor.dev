@@ -1,5 +1,6 @@
 {{ define "body" }}
-    <h1>{{ .Title }}</h1>
-
-    {{ .Content }}
+    <div class="home-layout">
+        {{ partial "home/me-summary.html" . }}
+        {{ partial "home/projects.html" . }}
+    </div>
 {{ end }}

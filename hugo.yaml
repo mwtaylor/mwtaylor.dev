@@ -3,3 +3,8 @@ languageCode: 'en-us'
 title: 'Michael Taylor'
 theme:
   - base
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
