@@ -24,6 +24,24 @@ html, body {
   color: #FE6347;
 }
 
+.me {
+  width: auto;
+  position: relative;
+}
+
+.me img {
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.switched-direction {
+  display: flex;
+  flex-direction: row;
+}
+
 @media (width >= 70em) and (orientation: landscape) {
   .home-layout {
     flex-direction: row;
@@ -31,5 +49,20 @@ html, body {
   .me-summary {
     height: 100%;
     width: 20em;
+  }
+
+  .me {
+    padding: 1em;
+  }
+
+  .me img {
+    height: auto;
+    width: 100%;
+    position: relative;
+    margin: 0;
+  }
+
+  .switched-direction {
+    flex-direction: column;
   }
 }

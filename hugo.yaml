@@ -1,6 +1,16 @@
 baseURL: 'https://mwtaylor.dev'
-languageCode: 'en-us'
 title: 'Michael Taylor'
+
+languageCode: 'en-US'
+defaultContentLanguage: "en-US"
+languages:
+  "en-US":
+    contentDir: content
+    disabled: false
+    languageCode: en-US
+    languageName: U.S. English
+    weight: 0
+
 theme:
   - base
 

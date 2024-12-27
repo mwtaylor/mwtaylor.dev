@@ -1,0 +1,5 @@
+{{ with resources.Get "images/me.jpg" -}}
+    <div class="me">
+        <img src="{{ .RelPermalink }}" alt="{{ T "me_image_description" }}" />
+    </div>
+{{- end }}

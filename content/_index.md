@@ -2,6 +2,10 @@
 title: Home
 ---
 
-Hi, my name is <br> **Michael Taylor**
+{{% switched-direction %}}
+  Hi, my name is <br> **Michael Taylor**
+
+  {{< me-image >}}
+{{% /switched-direction %}}
 
 This is my stuff I have worked on and want to share!
