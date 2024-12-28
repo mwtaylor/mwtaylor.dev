@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -13,6 +14,9 @@ html, body {
 .me-summary {
   background-color: #1C121F;
   color: #EEFFE0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .me-summary h1 {
@@ -37,6 +41,13 @@ html, body {
   margin-right: 1em;
 }
 
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 2em;
+}
+
 .switched-direction {
   display: flex;
   flex-direction: row;
@@ -49,6 +60,7 @@ html, body {
   .me-summary {
     height: 100%;
     width: 20em;
+    flex-direction: column;
   }
 
   .me {
@@ -60,6 +72,10 @@ html, body {
     width: 100%;
     position: relative;
     margin: 0;
+  }
+
+  .social-icons {
+    flex-direction: row;
   }
 
   .switched-direction {
