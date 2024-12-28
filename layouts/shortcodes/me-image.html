@@ -1,5 +1,6 @@
 {{ with resources.Get "images/me.jpg" -}}
+    {{ $image := .Resize "510x510 webp picture" -}}
     <div class="me">
-        <img src="{{ .RelPermalink }}" alt="{{ T "me_image_description" }}" />
+        <img src="{{ $image.RelPermalink }}" alt="{{ T "me_image_description" }}" />
     </div>
 {{- end }}
