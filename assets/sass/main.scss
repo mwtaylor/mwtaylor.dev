@@ -28,17 +28,16 @@ html, body {
   color: #FE6347;
 }
 
-.me {
-  width: auto;
-  position: relative;
+.me-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
 }
 
-.me img {
-  height: 100%;
+.me-image img {
+  height: 2em;
   border-radius: 50%;
-  position: absolute;
-  margin-left: 1em;
-  margin-right: 1em;
 }
 
 .social-icons {
@@ -63,11 +62,11 @@ html, body {
     flex-direction: column;
   }
 
-  .me {
-    padding: 1em;
+  .me-image {
+    flex-direction: row;
   }
 
-  .me img {
+  .me-image img {
     height: auto;
     width: 100%;
     position: relative;

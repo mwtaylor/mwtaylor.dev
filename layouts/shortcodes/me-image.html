@@ -1,6 +1,11 @@
+{{ $parentSelector := .Get 0 }}
 {{ with resources.Get "images/me.jpg" -}}
     {{ $image := .Resize "510x510 webp picture" -}}
-    <div class="me">
-        <img src="{{ $image.RelPermalink }}" alt="{{ T "me_image_description" }}" />
+    <div class="me-image">
+        <img
+                src="{{ $image.RelPermalink }}"
+                alt="{{ T "me_image_description" }}"
+                data-match-flex-row-height="{{ $parentSelector }}"
+        />
     </div>
 {{- end }}

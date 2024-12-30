@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/mwtaylor/mwtaylor.dev#readme",
   "devDependencies": {
+    "@types/jquery": "^3.5.32",
     "hugo-extended": "^0.140.0",
+    "jquery": "^3.7.1",
     "sass": "^1.83.0",
     "sass-embedded": "^1.83.0"
   }
