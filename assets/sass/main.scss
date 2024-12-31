@@ -66,6 +66,8 @@ html, body {
     height: 100%;
     width: 20em;
     flex-direction: column;
+    overflow: scroll;
+    padding: 0 0.5em;
   }
 
   .me-image {
