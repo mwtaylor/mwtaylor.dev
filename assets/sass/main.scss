@@ -1,3 +1,5 @@
+$orange: #FE6347;
+
 html, body {
   height: 100%;
   width: 100%;
@@ -25,7 +27,7 @@ html, body {
 
 .me-summary h1 strong {
   font-size: 1.8em;
-  color: #FE6347;
+  color: $orange;
 }
 
 .me-image {
@@ -45,6 +47,10 @@ html, body {
   flex-direction: column;
   justify-content: space-evenly;
   font-size: 2em;
+}
+
+.fa-brands {
+  color: $orange;
 }
 
 .switched-direction {

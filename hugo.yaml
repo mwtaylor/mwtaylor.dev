@@ -18,3 +18,11 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+params:
+  social_accounts:
+    mastodon:
+      server: mwtaylor.social
+      username: Michael
+    github:
+      username: mwtaylor
