@@ -19,14 +19,15 @@ html, body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0 1em;
 }
 
 .me-summary h1 {
-  font-size: 1.4em;
+  font-size: 1.5em;
 }
 
 .me-summary h1 strong {
-  font-size: 1.8em;
+  font-size: 2em;
   color: $orange;
 }
 
@@ -67,7 +68,7 @@ html, body {
     width: 20em;
     flex-direction: column;
     overflow: scroll;
-    padding: 0 0.5em;
+    padding: 0 1em;
   }
 
   .me-image {
@@ -87,5 +88,37 @@ html, body {
 
   .switched-direction {
     flex-direction: column;
+  }
+}
+
+@media (width < 35em) {
+  p {
+    margin: 0.5em 0;
+  }
+
+  .me-summary {
+    padding: 0 0.5em;
+    flex-direction: column;
+  }
+
+  .me-summary h1 {
+    font-size: 1.2em;
+  }
+
+  .me-summary h1 strong {
+    font-size: 1.5em;
+  }
+
+  .me-image {
+    padding: 0.5em;
+  }
+
+  .social-icons {
+    flex-direction: row;
+    font-size: 1.5em;
+  }
+
+  .switched-direction {
+    justify-content: space-between;
   }
 }
