@@ -26,6 +26,27 @@ function resize_heights_in_flex_rows() {
     });
 }
 
+function set_large_text_layout() {
+    $("body").addClass("large-text");
+}
+
+function handle_large_fonts() {
+    const tester = $("<div>");
+    new ResizeObserver(() => {
+        const default_font_size = tester.width();
+
+        if (default_font_size > 16) {
+            set_large_text_layout();
+            resize_heights_in_flex_rows();
+        }
+    }).observe(tester.get().pop(), { box: "device-pixel-content-box" });
+
+    tester.css("width", "1rem");
+    $("body").append(tester);
+}
+
+handle_large_fonts();
+
 resize_heights_in_flex_rows();
 
 $(window).on("resize", () => {
