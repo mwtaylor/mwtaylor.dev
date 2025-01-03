@@ -7,6 +7,9 @@ $decoration-height: 192px;
 $decoration-width: 472px;
 $stripe-width: 72px;
 
+$max-x-small-width: 35em;
+$max-small-width: 70em;
+
 html, body {
   height: 100%;
   width: 100%;
@@ -67,7 +70,15 @@ html, body {
   flex-direction: row;
 }
 
-@media (width >= 70em) and (orientation: landscape) {
+.stripe {
+  position: relative;
+  height: $stripe-width;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: contain;
+}
+
+@media (width >= $max-small-width) and (orientation: landscape) {
   .home-layout {
     flex-direction: row;
   }
@@ -109,6 +120,17 @@ html, body {
     background: $dark;
   }
 
+  .stripe {
+    position: absolute;
+    height: unset;
+    bottom: 0;
+    top: 0;
+    left: $summary-bar-width;
+    width: $stripe-width;
+    z-index: 2;
+    background-repeat: repeat-y;
+  }
+
   @media (height > 920px) {
     .me-summary-container {
       bottom: $decoration-height;
@@ -125,17 +147,10 @@ html, body {
       background-position: bottom;
       background-size: contain;
     }
-  }
 
-  .stripe {
-    position: absolute;
-    left: $summary-bar-width;
-    bottom: $decoration-height;
-    top: 0;
-    width: $stripe-width;
-    z-index: 2;background-repeat: repeat-y;
-    background-position: bottom;
-    background-size: contain;
+    .stripe {
+      bottom: $decoration-height;
+    }
   }
 
   .social-icons {
@@ -147,7 +162,7 @@ html, body {
   }
 }
 
-@media (width < 35em) {
+@media (width < $max-x-small-width) {
   p {
     margin: 0.5em 0;
   }

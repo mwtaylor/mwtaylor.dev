@@ -1,10 +1,29 @@
+{{ define "head" }}
+    <style>
+        {{ with resources.Get "images/stripe.png" }}
+            {{ $image := .Process "r90" }}
+            .stripe {
+                background-image: url('{{ $image.RelPermalink  }}')
+            }
+        {{ end }}
+        @media (width >= 70em) and (orientation: landscape) {
+            {{ with resources.Get "images/decoration.png" }}
+                .decoration {
+                    background-image: url('{{ .RelPermalink  }}');
+                }
+
+            {{ end }}
+            {{ with resources.Get "images/stripe.png" }}
+                .stripe {
+                    background-image: url('{{ .RelPermalink  }}')
+                }
+            {{ end }}
+        }
+    </style>
+{{ end }}
 {{ define "body" }}
-    {{ with resources.Get "images/decoration.png" }}
-        <div class="decoration" style="background-image: url('{{ .RelPermalink  }}')"></div>
-    {{ end }}
-    {{ with resources.Get "images/stripe.png" }}
-        <div class="stripe" style="background-image: url('{{ .RelPermalink  }}')"></div>
-    {{ end }}
-    <div class="bg"></div>
     {{ partial "home/me-summary.html" . }}
+    <div class="decoration"></div>
+    <div class="stripe"></div>
+    <div class="bg"></div>
 {{ end }}
