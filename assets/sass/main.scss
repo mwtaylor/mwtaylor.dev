@@ -1,10 +1,18 @@
 $orange: #FE6347;
+$dark: #1C121F;
+$light: #EEFFE0;
+
+$summary-bar-width: 400px;
+$decoration-height: 192px;
+$decoration-width: 472px;
+$stripe-width: 72px;
 
 html, body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+  background: $light;
 }
 
 .home-layout {
@@ -14,8 +22,8 @@ html, body {
 }
 
 .me-summary {
-  background-color: #1C121F;
-  color: #EEFFE0;
+  background-color: $dark;
+  color: $light;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -63,11 +71,20 @@ html, body {
   .home-layout {
     flex-direction: row;
   }
-  .me-summary {
-    height: 100%;
-    width: 20em;
-    flex-direction: column;
+
+  .me-summary-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: $summary-bar-width;
+    z-index: 3;
     overflow: scroll;
+  }
+
+  .me-summary {
+    min-height: 100%;
+    flex-direction: column;
     padding: 0 1em;
   }
 
@@ -80,6 +97,45 @@ html, body {
     width: 100%;
     position: relative;
     margin: 0;
+  }
+
+  .bg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: $summary-bar-width + 2px;
+    z-index: 1;
+    background: $dark;
+  }
+
+  @media (height > 920px) {
+    .me-summary-container {
+      bottom: $decoration-height;
+    }
+
+    .decoration {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: $decoration-width;
+      height: $decoration-height;
+      z-index: 2;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: contain;
+    }
+  }
+
+  .stripe {
+    position: absolute;
+    left: $summary-bar-width;
+    bottom: $decoration-height;
+    top: 0;
+    width: $stripe-width;
+    z-index: 2;background-repeat: repeat-y;
+    background-position: bottom;
+    background-size: contain;
   }
 
   .social-icons {

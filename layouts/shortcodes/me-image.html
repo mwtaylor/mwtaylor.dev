@@ -1,6 +1,6 @@
 {{ $parentSelector := .Get 0 }}
 {{ with resources.Get "images/me.jpg" -}}
-    {{ $image := .Resize "510x510 webp picture" -}}
+    {{ $image := .Resize "510x510 webp drawing" -}}
     <div class="me-image">
         <img
                 src="{{ $image.RelPermalink }}"

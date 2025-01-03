@@ -1,6 +1,10 @@
 {{ define "body" }}
-    <div class="home-layout">
-        {{ partial "home/me-summary.html" . }}
-        {{ partial "home/projects.html" . }}
-    </div>
+    {{ with resources.Get "images/decoration.png" }}
+        <div class="decoration" style="background-image: url('{{ .RelPermalink  }}')"></div>
+    {{ end }}
+    {{ with resources.Get "images/stripe.png" }}
+        <div class="stripe" style="background-image: url('{{ .RelPermalink  }}')"></div>
+    {{ end }}
+    <div class="bg"></div>
+    {{ partial "home/me-summary.html" . }}
 {{ end }}
