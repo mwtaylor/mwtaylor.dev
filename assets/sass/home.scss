@@ -63,7 +63,7 @@
 }
 
 body:not(.large-text) {
-  @media (width >= v.$max-small-width) and (orientation: landscape) {
+  @media (width > v.$max-small-width) and (height >= v.$max-short-height) and (orientation: landscape) {
     .home-layout {
       flex-direction: row;
     }
@@ -117,7 +117,7 @@ body:not(.large-text) {
       background: url(h.$stripe-vert-url);
     }
 
-    @media (height > 920px) {
+    @media (height >= v.$max-medium-height) {
       .me-summary-container {
         bottom: v.$decoration-height;
       }
@@ -150,7 +150,7 @@ body:not(.large-text) {
   }
 }
 
-@media (width < v.$max-x-small-width) {
+@media (width <= v.$max-x-small-width) {
   p {
     margin: 0.5em 0;
   }
