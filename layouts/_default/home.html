@@ -1,25 +1,27 @@
 {{ define "head" }}
-    <style>
-        {{ with resources.Get "images/stripe.png" }}
-            {{ $image := .Process "r90" }}
-            .stripe {
-                background-image: url('{{ $image.RelPermalink  }}')
-            }
-        {{ end }}
-        @media (width >= 70em) and (orientation: landscape) {
-            {{ with resources.Get "images/decoration.png" }}
-                .decoration {
-                    background-image: url('{{ .RelPermalink  }}');
-                }
+    {{ $sass_vars := dict }}
 
-            {{ end }}
-            {{ with resources.Get "images/stripe.png" }}
-                .stripe {
-                    background-image: url('{{ .RelPermalink  }}')
-                }
-            {{ end }}
-        }
-    </style>
+    {{ with resources.Get "images/stripe.png" }}
+        {{ $rotated := .Process "r90" }}
+        {{ $sass_vars = merge $sass_vars
+            (dict
+                "stripe_vert_url" .RelPermalink
+                "stripe_horiz_url" $rotated.RelPermalink
+            )
+        }}
+    {{ end }}
+    {{ with resources.Get "images/decoration.png" }}
+        {{ $sass_vars = merge $sass_vars
+            (dict
+                "decoration_url" .RelPermalink
+            )
+        }}
+    {{ end }}
+
+    {{ $opts := dict "transpiler" "dartsass" "targetPath" "css/home.css" "vars" $sass_vars }}
+    {{ with resources.Get "sass/home.scss" | toCSS $opts | minify | fingerprint }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{ end }}
 {{ end }}
 {{ define "body" }}
     {{ partial "home/me-summary.html" . }}

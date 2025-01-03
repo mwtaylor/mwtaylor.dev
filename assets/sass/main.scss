@@ -1,21 +1,11 @@
-$orange: #FE6347;
-$dark: #1C121F;
-$light: #EEFFE0;
-
-$summary-bar-width: 400px;
-$decoration-height: 192px;
-$decoration-width: 472px;
-$stripe-width: 72px;
-
-$max-x-small-width: 35em;
-$max-small-width: 70em;
+@use "vars.scss" as v;
 
 html, body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  background: $light;
+  background: v.$light;
 }
 
 .home-layout {
@@ -25,8 +15,8 @@ html, body {
 }
 
 .me-summary {
-  background-color: $dark;
-  color: $light;
+  background-color: v.$dark;
+  color: v.$light;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -39,7 +29,7 @@ html, body {
 
 .me-summary h1 strong {
   font-size: 2em;
-  color: $orange;
+  color: v.$orange;
 }
 
 .me-image {
@@ -62,7 +52,7 @@ html, body {
 }
 
 .fa-brands {
-  color: $orange;
+  color: v.$orange;
 }
 
 .switched-direction {
@@ -72,13 +62,13 @@ html, body {
 
 .stripe {
   position: relative;
-  height: $stripe-width;
+  height: v.$stripe-width;
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: contain;
 }
 
-@media (width >= $max-small-width) and (orientation: landscape) {
+@media (width >= v.$max-small-width) and (orientation: landscape) {
   .home-layout {
     flex-direction: row;
   }
@@ -88,7 +78,7 @@ html, body {
     top: 0;
     bottom: 0;
     left: 0;
-    width: $summary-bar-width;
+    width: v.$summary-bar-width;
     z-index: 3;
     overflow: scroll;
   }
@@ -115,9 +105,9 @@ html, body {
     left: 0;
     bottom: 0;
     top: 0;
-    width: $summary-bar-width + 2px;
+    width: v.$summary-bar-width + 2px;
     z-index: 1;
-    background: $dark;
+    background: v.$dark;
   }
 
   .stripe {
@@ -125,23 +115,23 @@ html, body {
     height: unset;
     bottom: 0;
     top: 0;
-    left: $summary-bar-width;
-    width: $stripe-width;
+    left: v.$summary-bar-width;
+    width: v.$stripe-width;
     z-index: 2;
     background-repeat: repeat-y;
   }
 
   @media (height > 920px) {
     .me-summary-container {
-      bottom: $decoration-height;
+      bottom: v.$decoration-height;
     }
 
     .decoration {
       position: absolute;
       left: 0;
       bottom: 0;
-      width: $decoration-width;
-      height: $decoration-height;
+      width: v.$decoration-width;
+      height: v.$decoration-height;
       z-index: 2;
       background-repeat: no-repeat;
       background-position: bottom;
@@ -149,7 +139,7 @@ html, body {
     }
 
     .stripe {
-      bottom: $decoration-height;
+      bottom: v.$decoration-height;
     }
   }
 
@@ -162,7 +152,7 @@ html, body {
   }
 }
 
-@media (width < $max-x-small-width) {
+@media (width < v.$max-x-small-width) {
   p {
     margin: 0.5em 0;
   }

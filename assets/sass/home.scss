@@ -1,0 +1,16 @@
+@use "hugo:vars" as h;
+@use "vars.scss" as v;
+
+.stripe {
+  background: url(h.$stripe-horiz-url);
+}
+
+@media (width >= v.$max-small-width) and (orientation: landscape) {
+  .stripe {
+    background: url(h.$stripe-vert-url);
+  }
+
+  .decoration {
+    background: url(h.$decoration-url);
+  }
+}
