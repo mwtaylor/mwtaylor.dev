@@ -14,6 +14,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 0 1em;
+  gap: 1em;
 }
 
 .me-summary h1 {
@@ -82,6 +83,7 @@ body:not(.large-text) {
       min-height: 100%;
       flex-direction: column;
       padding: 0 1em;
+      gap: unset;
     }
 
     .me-image {
@@ -158,6 +160,7 @@ body:not(.large-text) {
   .me-summary {
     padding: 0 0.5em;
     flex-direction: column;
+    gap: unset;
   }
 
   .me-summary h1 {
