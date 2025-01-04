@@ -1,3 +1,5 @@
 <div class="projects">
-    Projects
+    {{ range where site.RegularPages "Section" "projects" }}
+        {{ .Render "summary" }}
+    {{ end }}
 </div>
