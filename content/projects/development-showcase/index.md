@@ -1,6 +1,7 @@
 ---
 date: '2025-01-04T00:01:15-08:00'
 draft: true
+weight: 2
 
 title: 'Development Showcase'
 summary: "This website! Made with Hugo and served with GitHub pages. CSS is custom made and doesn't use any UI 

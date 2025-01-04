@@ -1,6 +1,7 @@
 ---
 date: '2025-01-03T22:40:19-08:00'
 draft: true
+weight: 1
 
 title: 'Elephant in the Kitchen'
 summary: "My collection of personal recipes. 
