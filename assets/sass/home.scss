@@ -68,6 +68,7 @@
   border-width: v.$project-summary-border-width;
   border-style: solid;
   margin: v.$project-summary-margin;
+  position: relative;
 }
 
 body:not(.large-text) {
