@@ -1,4 +1,11 @@
 <div class="project-summary {{ .Params.cssClass}}">
-    <h2><a href="{{ .RelPermalink }}" class="stretched-link">{{ .LinkTitle }}</a></h2>
+    {{ $headingId := (printf "%s grid heading" .Path) | anchorize }}
+    <h2 id="{{ $headingId }}"><a href="{{ .RelPermalink }}" class="stretched-link">{{ .LinkTitle }}</a></h2>
+    {{ partial "home/project-summary-icon.html" (dict
+        "headingId" $headingId
+        "icon" .Params.icon
+        "iconAlt" .Params.iconAlt
+        "globalIcon" .Params.globalIcon
+    ) }}
     {{ .Summary }}
 </div>

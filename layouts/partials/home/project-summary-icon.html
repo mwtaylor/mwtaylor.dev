@@ -1,0 +1,24 @@
+{{ $icon := page.Resources.Get .icon }}
+{{ if .globalIcon }}
+    {{ $icon = resources.Get .icon }}
+{{ end }}
+{{ $iconAlt := .iconAlt }}
+{{ $headingId := .headingId }}
+{{ with $icon }}
+    {{ $image := .Resize "200x200 webp drawing" }}
+    <div>
+        <img
+                src="{{ $image.RelPermalink }}"
+                {{ with $iconAlt }}
+                    alt="{{ T . }}"
+                {{ else }}
+                    {{ warnf "Missing alt text for icon %s" . }}
+                {{ end }}
+                data-match-flex-row-height="#{{ $headingId }}"
+        />
+    </div>
+{{ else }}
+    {{ if .icon }}
+        {{ warnf "Icon not found %s" .icon }}
+    {{ end }}
+{{ end }}

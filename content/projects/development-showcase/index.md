@@ -9,7 +9,9 @@ summary: "This website! Made with Hugo and served with GitHub pages. CSS is cust
           accessibility best practices."
 
 params:
-  icon: ''
+  icon: 'images/me.jpg'
+  iconAlt: 'A black and white cartoon-like drawing of myself'
+  globalIcon: true
   website: 'https://mwtaylor.dev'
   github: 'https://github.com/mwtaylor/mwtaylor.dev'
   cssClass: 'dev'

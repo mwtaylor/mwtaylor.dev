@@ -8,6 +8,7 @@ summary: ""
 
 params:
   icon: ''
+  iconAlt: ''
   website: ''
   github: ''
   cssClass: ''
