@@ -1,5 +1,7 @@
 <div class="projects">
-    {{ range where site.RegularPages "Section" "projects" }}
-        {{ .Render "summary" }}
-    {{ end }}
+    <div class="projects-grid">
+        {{ range where site.RegularPages "Section" "projects" }}
+            {{ .Render "summary" }}
+        {{ end }}
+    </div>
 </div>

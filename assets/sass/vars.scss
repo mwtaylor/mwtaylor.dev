@@ -1,12 +1,19 @@
 $orange: #FE6347;
 $dark: #1C121F;
 $light: #EEFFE0;
+$primary: #6A397B;
+$primary-dark: #402A47;
+$secondary: #00675B;
+$secondary-dark: #005348;
 
 $summary-bar-width: 400px;
 $decoration-height: 192px;
 $decoration-width: 472px;
 $stripe-width: 72px;
 $project-summary-width: 400px;
+
+$project-summary-border-width: 2px;
+$project-summary-margin: 10px;
 
 $max-small-width: 580px;
 $max-medium-width: $summary-bar-width + $stripe-width + ($project-summary-width * 2);

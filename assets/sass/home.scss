@@ -63,6 +63,13 @@
   background: url(h.$stripe-horiz-url);
 }
 
+.project-summary {
+  border-color: v.$primary;
+  border-width: v.$project-summary-border-width;
+  border-style: solid;
+  margin: v.$project-summary-margin;
+}
+
 body:not(.large-text) {
   @media (width > v.$max-medium-width) and (height >= v.$max-short-height) and (orientation: landscape) {
     .home-layout {
@@ -147,12 +154,16 @@ body:not(.large-text) {
       left: v.$summary-bar-width + v.$stripe-width;
       right: 0;
       height: 100%;
+    }
+
+    .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, v.$project-summary-width);
       grid-template-areas:
         "cookbook cookbook"
         "cookbook cookbook"
         "dev dev";
+      grid-template-rows: minmax(250px, auto);
       .cookbook {
         grid-area: cookbook;
       }
@@ -162,7 +173,7 @@ body:not(.large-text) {
     }
 
     @media (width > v.$max-large-width) {
-      .projects {
+      .projects-grid {
         grid-template-columns: repeat(3, v.$project-summary-width);
         grid-template-areas:
           "cookbook cookbook dev"
@@ -171,7 +182,7 @@ body:not(.large-text) {
     }
 
     @media (width > v.$max-xlarge-width) {
-      .projects {
+      .projects-grid {
         grid-template-columns: repeat(4, v.$project-summary-width);
         grid-template-areas:
           "cookbook cookbook . dev ."
