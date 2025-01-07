@@ -10,4 +10,5 @@ params:
   icon: ''
   website: ''
   github: ''
+  cssClass: ''
 ---

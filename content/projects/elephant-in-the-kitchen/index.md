@@ -14,4 +14,5 @@ params:
   icon: ''
   website: 'https://elephantinthekitchen.com'
   github: 'https://github.com/mwtaylor/Cookbook'
+  cssClass: 'cookbook'
 ---

@@ -12,4 +12,5 @@ params:
   icon: ''
   website: 'https://mwtaylor.dev'
   github: 'https://github.com/mwtaylor/mwtaylor.dev'
+  cssClass: 'dev'
 ---

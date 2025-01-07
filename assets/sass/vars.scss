@@ -6,9 +6,12 @@ $summary-bar-width: 400px;
 $decoration-height: 192px;
 $decoration-width: 472px;
 $stripe-width: 72px;
+$project-summary-width: 400px;
 
-$max-x-small-width: 580px;
-$max-small-width: 1400px;
+$max-small-width: 580px;
+$max-medium-width: $summary-bar-width + $stripe-width + ($project-summary-width * 2);
+$max-large-width: $summary-bar-width + $stripe-width + ($project-summary-width * 3);
+$max-xlarge-width: $summary-bar-width + $stripe-width + ($project-summary-width * 4);
 
 $max-short-height: 730px;
 $max-medium-height: 920px;
