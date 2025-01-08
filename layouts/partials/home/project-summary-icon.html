@@ -1,12 +1,11 @@
-{{ $icon := page.Resources.Get .icon }}
-{{ if .globalIcon }}
-    {{ $icon = resources.Get .icon }}
+{{ $icon := .Resources.Get .Params.icon }}
+{{ if .Params.isGlobalIcon }}
+    {{ $icon = resources.Get .Params.icon }}
 {{ end }}
-{{ $iconAlt := .iconAlt }}
-{{ $headingId := .headingId }}
+{{ $iconAlt := .Params.iconAlt }}
 {{ with $icon }}
     {{ $image := .Resize "200x200 webp drawing" }}
-    <div>
+    <div class="project-summary-icon">
         <img
                 src="{{ $image.RelPermalink }}"
                 {{ with $iconAlt }}
@@ -14,11 +13,11 @@
                 {{ else }}
                     {{ warnf "Missing alt text for icon %s" . }}
                 {{ end }}
-                data-match-flex-row-height="#{{ $headingId }}"
+                data-match-flex-row-height=".project-summary-header"
         />
     </div>
 {{ else }}
-    {{ if .icon }}
-        {{ warnf "Icon not found %s" .icon }}
+    {{ if .Params.icon }}
+        {{ warnf "Icon not found %s" .Params.icon }}
     {{ end }}
 {{ end }}

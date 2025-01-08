@@ -34,7 +34,7 @@
 }
 
 .me-image img {
-  height: 2em;
+  height: 50px;
   border-radius: 50%;
 }
 
@@ -69,6 +69,20 @@
   border-style: solid;
   margin: v.$project-summary-margin;
   position: relative;
+}
+
+.project-summary-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.project-summary-icon img {
+  height: 50px;
+}
+
+.dev .project-summary-icon img {
+  border-radius: 50%;
 }
 
 body:not(.large-text) {

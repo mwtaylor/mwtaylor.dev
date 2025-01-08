@@ -11,7 +11,8 @@ summary: "My collection of personal recipes.
           for easy reading in the kitchen. Uses Bootstrap for a responsive layout on all types of devices."
 
 params:
-  icon: ''
+  icon: 'icon.png'
+  iconAlt: 'Cartoon drawing of an elephant wearing a chef hat'
   website: 'https://elephantinthekitchen.com'
   github: 'https://github.com/mwtaylor/Cookbook'
   cssClass: 'cookbook'

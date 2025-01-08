@@ -11,7 +11,7 @@ summary: "This website! Made with Hugo and served with GitHub pages. CSS is cust
 params:
   icon: 'images/me.jpg'
   iconAlt: 'A black and white cartoon-like drawing of myself'
-  globalIcon: true
+  isGlobalIcon: true
   website: 'https://mwtaylor.dev'
   github: 'https://github.com/mwtaylor/mwtaylor.dev'
   cssClass: 'dev'
