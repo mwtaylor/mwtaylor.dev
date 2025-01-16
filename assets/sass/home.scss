@@ -173,11 +173,11 @@ body:not(.large-text) {
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(2, v.$project-summary-width);
+      grid-template-columns: repeat(4, calc(v.$project-summary-width / 2));
       grid-template-areas:
-        "cookbook cookbook"
-        "cookbook cookbook"
-        "dev dev";
+        "cookbook cookbook cookbook cookbook"
+        "cookbook cookbook cookbook cookbook"
+        "dev dev dev dev";
       grid-template-rows: minmax(250px, auto);
       .cookbook {
         grid-area: cookbook;
@@ -189,19 +189,19 @@ body:not(.large-text) {
 
     @media (width > v.$max-large-width) {
       .projects-grid {
-        grid-template-columns: repeat(3, v.$project-summary-width);
+        grid-template-columns: repeat(6, calc(v.$project-summary-width / 2));
         grid-template-areas:
-          "cookbook cookbook dev"
-          "cookbook cookbook dev";
+          "cookbook cookbook cookbook cookbook dev dev"
+          "cookbook cookbook cookbook cookbook dev dev";
       }
     }
 
     @media (width > v.$max-xlarge-width) {
       .projects-grid {
-        grid-template-columns: repeat(4, v.$project-summary-width);
+        grid-template-columns: repeat(8, calc(v.$project-summary-width / 2));
         grid-template-areas:
-          "cookbook cookbook . dev ."
-          "cookbook cookbook . dev .";
+          "cookbook cookbook cookbook cookbook . dev dev ."
+          "cookbook cookbook cookbook cookbook . dev dev .";
       }
     }
 
