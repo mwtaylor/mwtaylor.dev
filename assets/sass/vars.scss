@@ -10,8 +10,9 @@ $summary-bar-width: 400px;
 $decoration-height: 192px;
 $decoration-width: 472px;
 $stripe-width: 72px;
-$project-summary-width: 400px;
 
+$project-summary-width: 400px;
+$project-summary-grid-width: calc($project-summary-width / 2);
 $project-summary-border-width: 2px;
 $project-summary-margin: 10px;
 

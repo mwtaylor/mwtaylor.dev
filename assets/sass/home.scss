@@ -138,6 +138,7 @@ body:not(.large-text) {
       width: v.$stripe-width;
       z-index: 2;
       background-repeat: repeat-y;
+      //noinspection CssUnknownTarget
       background: url(h.$stripe-vert-url);
     }
 
@@ -156,6 +157,7 @@ body:not(.large-text) {
         background-repeat: no-repeat;
         background-position: bottom;
         background-size: contain;
+        //noinspection CssUnknownTarget
         background: url(h.$decoration-url);
       }
 
@@ -173,7 +175,7 @@ body:not(.large-text) {
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(4, calc(v.$project-summary-width / 2));
+      grid-template-columns: repeat(4, v.$project-summary-grid-width);
       grid-template-areas:
         "cookbook cookbook cookbook cookbook"
         "cookbook cookbook cookbook cookbook"
@@ -189,7 +191,7 @@ body:not(.large-text) {
 
     @media (width > v.$max-large-width) {
       .projects-grid {
-        grid-template-columns: repeat(6, calc(v.$project-summary-width / 2));
+        grid-template-columns: repeat(6, v.$project-summary-grid-width);
         grid-template-areas:
           "cookbook cookbook cookbook cookbook dev dev"
           "cookbook cookbook cookbook cookbook dev dev";
@@ -198,7 +200,7 @@ body:not(.large-text) {
 
     @media (width > v.$max-xlarge-width) {
       .projects-grid {
-        grid-template-columns: repeat(8, calc(v.$project-summary-width / 2));
+        grid-template-columns: repeat(8, v.$project-summary-grid-width);
         grid-template-areas:
           "cookbook cookbook cookbook cookbook . dev dev ."
           "cookbook cookbook cookbook cookbook . dev dev .";
