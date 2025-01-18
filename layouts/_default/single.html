@@ -1,0 +1,11 @@
+{{ define "head" }}
+    {{ $opts := dict "transpiler" "dartsass" "targetPath" "css/project.css" }}
+    {{ with resources.Get "sass/project.scss" | toCSS $opts | minify | fingerprint }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{ end }}
+{{ end }}
+{{ define "body" }}
+    <div class="project">
+        <h1>{{ .Title }}</h1>
+    </div>
+{{ end }}
