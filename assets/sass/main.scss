@@ -15,4 +15,9 @@ html, body {
   left: 0;
   right: 0;
   content: "";
+  z-index: 1;
+}
+
+.stretched-link.inception {
+  z-index: 2;
 }

@@ -69,12 +69,15 @@
   border-style: solid;
   margin: v.$project-summary-margin;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-summary-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: v.$project-summary-padding;
 }
 
 .project-summary-icon img {
@@ -83,6 +86,22 @@
 
 .dev .project-summary-icon img {
   border-radius: 50%;
+}
+
+.project-summary-summary {
+  flex-grow: 1;
+  padding: v.$project-summary-padding;
+}
+
+.project-summary-external-link {
+  border-top-width: 1px;
+  border-top-color: v.$primary;
+  border-top-style: solid;
+  position: relative;
+  padding: v.$project-summary-padding;
+  i {
+    padding-right: v.$project-summary-padding;
+  }
 }
 
 body:not(.large-text) {

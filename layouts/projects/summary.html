@@ -3,5 +3,10 @@
         <h2><a href="{{ .RelPermalink }}" class="stretched-link">{{ .LinkTitle }}</a></h2>
         {{ partial "home/project-summary-icon.html" . }}
     </div>
-    {{ .Summary }}
+    <div class="project-summary-summary">
+        {{ .Summary }}
+    </div>
+    {{ with .Params.website }}
+        {{ partial "home/project-summary-external-link.html" . }}
+    {{ end }}
 </div>
