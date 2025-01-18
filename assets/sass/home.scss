@@ -71,6 +71,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  background-color: v.$light;
 }
 
 .project-summary-header {
@@ -267,4 +268,16 @@ body:not(.large-text) {
   .switched-direction {
     justify-content: space-between;
   }
+}
+
+a:visited, a:link
+{
+  color: v.$secondary;
+  text-decoration: none;
+}
+
+a:hover, a:focus-visible, a:active
+{
+  color: v.$secondary-dark;
+  text-decoration: underline;
 }
