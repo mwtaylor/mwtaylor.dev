@@ -6,7 +6,12 @@
     <div class="project-summary-summary">
         {{ .Summary }}
     </div>
-    {{ with .Params.website }}
-        {{ partial "home/project-summary-external-link.html" . }}
-    {{ end }}
+    <div class="project-summary-footer">
+        {{ with .Params.website }}
+            {{ partial "home/project-summary-external-link.html" . }}
+        {{ end }}
+        {{ with .Params.github }}
+            {{ partial "home/project-summary-github-link.html" . }}
+        {{ end }}
+    </div>
 </div>
