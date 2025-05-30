@@ -63,6 +63,13 @@
   background: url(h.$stripe-horiz-url);
 }
 
+// Prevent margin collapse around the project list, especially on the bottom of the page where the last project will
+// otherwise be smushed against the bottom of the page with no margin.
+.projects::before, .projects::after{
+  content: ' ';
+  display: table;
+}
+
 .project-summary {
   border-color: v.$primary;
   border-width: v.$project-summary-border-width;
