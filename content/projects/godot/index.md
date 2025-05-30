@@ -9,8 +9,8 @@ summary: 'An example Godot game based on the Dodge the Creeps tutorial that also
           game saves, translations, and credits'
 
 params:
-  icon: ''
-  iconAlt: ''
+  icon: 'icon_color.png'
+  iconAlt: 'A blue character face with gear teeth as hair and interlocking gears as the jaw'
   website: ''
   github: 'https://github.com/mwtaylor/Godot2dExample'
   cssClass: ''

@@ -1,15 +1,16 @@
 {{ $icon := .Resources.Get .Params.icon }}
+{{ $iconAlt := .Params.iconAlt }}
 {{ if .Params.isGlobalIcon }}
     {{ $icon = resources.Get .Params.icon }}
+    {{ $iconAlt = T $iconAlt }}
 {{ end }}
-{{ $iconAlt := .Params.iconAlt }}
 {{ with $icon }}
     {{ $image := .Resize "200x200 webp drawing" }}
     <div class="project-summary-icon">
         <img
                 src="{{ $image.RelPermalink }}"
                 {{ with $iconAlt }}
-                    alt="{{ T . }}"
+                    alt="{{ . }}"
                 {{ else }}
                     {{ warnf "Missing alt text for icon %s" . }}
                 {{ end }}
