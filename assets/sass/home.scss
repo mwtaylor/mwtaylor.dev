@@ -106,6 +106,7 @@
   position: relative;
   padding: v.$project-summary-padding;
   flex-grow: 1;
+  align-content: center;
   i {
     padding-right: v.$project-summary-padding;
   }

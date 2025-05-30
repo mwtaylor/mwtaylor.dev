@@ -7,9 +7,13 @@
         {{ .Summary }}
     </div>
     <div class="project-summary-footer">
-        {{ with .Params.website }}
-            {{ partial "home/project-summary-external-link.html" . }}
-        {{ end }}
+        <div class="project-summary-external-link">
+            {{ with .Params.website }}
+                {{ partial "home/project-summary-external-link.html" . }}
+            {{ else }}
+                <div class="stretched-link inception"></div>
+            {{ end }}
+        </div>
         {{ with .Params.github }}
             {{ partial "home/project-summary-github-link.html" . }}
         {{ end }}
