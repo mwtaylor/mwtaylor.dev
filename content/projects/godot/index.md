@@ -13,7 +13,7 @@ params:
   iconAlt: 'A blue character face with gear teeth as hair and interlocking gears as the jaw'
   website: ''
   github: 'https://github.com/mwtaylor/Godot2dExample'
-  cssClass: ''
+  cssClass: 'godot'
 ---
 
 This project builds upon the Godot 2D game tutorial ["Dodge the Creeps"][1] by adding things

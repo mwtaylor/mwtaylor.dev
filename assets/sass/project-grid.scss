@@ -1,0 +1,49 @@
+@use "vars" as v;
+@use "projects";
+
+.projects-grid {
+  display: grid;
+  grid-template-rows: minmax(250px, auto);
+  grid-gap: v.$project-summary-gap;
+  padding: v.$project-summary-gap;
+  grid-template-columns: 1fr;
+}
+
+body:not(.large-text) {
+  .projects-grid {
+    @media (width > v.$max-medium-width) and (height >= v.$max-short-height) and (orientation: landscape) {
+      // Grid definition for smallest width grid
+      grid-template-columns: repeat(4, v.$project-summary-grid-width);
+      grid-template-areas:
+        "cookbook cookbook cookbook cookbook"
+        "dev dev godot godot";
+      .project-summary {
+        grid-column: span 1;
+      }
+
+      // Grid definition for medium width grid
+      @media (width > v.$max-large-width) {
+        grid-template-columns: repeat(6, v.$project-summary-grid-width);
+        grid-template-areas:
+          "cookbook cookbook cookbook cookbook dev dev"
+          ". . godot godot . .";
+        .project-summary {
+          grid-column: span 2;
+        }
+      }
+
+      // Grid definition for large width grid
+      @media (width > v.$max-xlarge-width) {
+        grid-template-columns: repeat(8, v.$project-summary-grid-width);
+        grid-template-areas:
+        "cookbook cookbook cookbook cookbook . dev dev ."
+        ". godot godot . . . . .";
+        .project-summary {
+          grid-column: span 2;
+        }
+      }
+
+      @include projects.project-grid-names;
+    }
+  }
+}

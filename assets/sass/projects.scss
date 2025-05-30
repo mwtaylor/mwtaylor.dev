@@ -1,0 +1,11 @@
+@mixin project-grid-names {
+  .cookbook {
+    grid-area: cookbook;
+  }
+  .dev {
+    grid-area: dev;
+  }
+  .godot {
+    grid-area: godot;
+  }
+}

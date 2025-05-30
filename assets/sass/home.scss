@@ -1,5 +1,6 @@
 @use "hugo:vars" as h;
-@use "vars.scss" as v;
+@use "vars" as v;
+@use "project-grid";
 
 .home-layout {
   height: 100%;
@@ -63,18 +64,10 @@
   background: url(h.$stripe-horiz-url);
 }
 
-// Prevent margin collapse around the project list, especially on the bottom of the page where the last project will
-// otherwise be smushed against the bottom of the page with no margin.
-.projects::before, .projects::after{
-  content: ' ';
-  display: table;
-}
-
 .project-summary {
   border-color: v.$primary;
   border-width: v.$project-summary-border-width;
   border-style: solid;
-  margin: v.$project-summary-margin;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -211,44 +204,6 @@ body:not(.large-text) {
       left: v.$summary-bar-width + v.$stripe-width;
       right: 0;
       height: 100%;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(4, v.$project-summary-grid-width);
-      grid-template-areas:
-        "cookbook cookbook cookbook cookbook"
-        "cookbook cookbook cookbook cookbook"
-        "dev dev dev dev";
-      grid-template-rows: minmax(250px, auto);
-      .cookbook {
-        grid-area: cookbook;
-      }
-      .dev {
-        grid-area: dev;
-      }
-    }
-
-    @media (width > v.$max-large-width) {
-      .projects-grid {
-        grid-template-columns: repeat(6, v.$project-summary-grid-width);
-        grid-template-areas:
-          "cookbook cookbook cookbook cookbook dev dev"
-          "cookbook cookbook cookbook cookbook dev dev";
-
-      }
-      .project-summary {
-        grid-column: span 2;
-      }
-    }
-
-    @media (width > v.$max-xlarge-width) {
-      .projects-grid {
-        grid-template-columns: repeat(8, v.$project-summary-grid-width);
-        grid-template-areas:
-          "cookbook cookbook cookbook cookbook . dev dev ."
-          "cookbook cookbook cookbook cookbook . dev dev .";
-      }
     }
 
     .social-icons {
