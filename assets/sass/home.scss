@@ -227,6 +227,10 @@ body:not(.large-text) {
         grid-template-areas:
           "cookbook cookbook cookbook cookbook dev dev"
           "cookbook cookbook cookbook cookbook dev dev";
+
+      }
+      .project-summary {
+        grid-column: span 2;
       }
     }
 
