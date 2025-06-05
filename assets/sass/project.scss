@@ -1,4 +1,4 @@
-@use "vars.scss" as v;
+@use "theme";
 
 .project {
   position: absolute;
@@ -6,5 +6,5 @@
   bottom: 0;
   left: 0;
   width: 800px;
-  background-color: v.$light;
+  background-color: theme.$light;
 }

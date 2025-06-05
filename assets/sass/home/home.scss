@@ -1,0 +1,306 @@
+@use 'hugo:vars' as h;
+@use '../theme';
+@use '../mixins' as *;
+@use 'vars' as v;
+@use 'project-grid';
+
+/**
+ * Layout the page in a general vertical format by default, will be overridden by media queries later
+ */
+.home-layout {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+ * Add this class to things that should be aligned in a different direction from the main page layout, in a row when
+ * the page is in a vertical format, and in a column when the page is in a horizontal format
+ */
+.switched-direction {
+  display: flex;
+  flex-direction: row;
+}
+
+/**
+ * Styles for the summary header when the page is in vertical format and has room to be expanded
+ * 1. Content is in a flex row with text and my picture on the left and social icons pushed to the right
+ */
+.me-summary {
+  background-color: theme.$dark;
+  color: theme.$light;
+  display: flex; /* 1 */
+  flex-direction: row; /* 1 */
+  justify-content: space-between; /* 1 */
+  padding: 0 v.$summary-padding;
+  gap: v.$summary-padding;
+
+  h1 {
+    font-size: v.$summary-h1-text-size;
+
+    strong {
+      font-size: v.$summary-strong-h1-text-size;
+      color: theme.$orange;
+    }
+  }
+
+  /**
+   * Always show the image vertically centered
+   */
+  .me-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: v.$summary-padding;
+  }
+
+  .me-image img {
+    height: v.$summary-top-bar-me-image-size;
+    border-radius: 50%;
+  }
+
+  .social-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: v.$summary-social-size;
+  }
+
+  .social-icons a .fa-brands {
+    color: theme.$orange;
+  }
+
+  /**
+   * Horizontal stripe separating the summary header and project list
+   */
+  .stripe {
+    position: relative;
+    height: v.$stripe-width;
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-size: contain;
+    background: url(h.$stripe-horiz-url);
+  }
+}
+
+/**
+ * Display the projects in a card style with a flex column to layout the heading, body, and footer
+ */
+.project-summary {
+  border-color: theme.$primary;
+  border-width: v.$project-summary-border-width;
+  border-style: solid;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: theme.$light;
+}
+
+.project-summary-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: v.$project-summary-padding;
+}
+
+.project-summary-icon img {
+  height: 50px;
+}
+
+/**
+ * This icon is the picture of me shown in the summary, make it rounded to match the style
+ */
+.dev .project-summary-icon img {
+  border-radius: 50%;
+}
+
+/**
+ * Expand the project card to fill grid height by making this main body of the card expand
+ */
+.project-summary-summary {
+  flex-grow: 1;
+  padding: v.$project-summary-padding;
+}
+
+/**
+ * Display footer as a flex row to layout related links horizontally
+ */
+.project-summary-footer {
+  border-top-width: v.$project-summary-interior-border-width;
+  border-top-color: theme.$primary;
+  border-top-style: solid;
+  display: flex;
+  flex-direction: row;
+}
+
+/**
+ * External links fill all available footer space
+ */
+.project-summary-external-link {
+  position: relative;
+  padding: v.$project-summary-padding;
+  flex-grow: 1;
+  align-content: center;
+  i {
+    padding-right: v.$project-summary-padding;
+  }
+}
+
+/**
+ * GitHub link will be pushed to the right of the footer and not expand
+ */
+.project-summary-github-link {
+  position: relative;
+  padding-right: v.$project-summary-padding;
+  $padding-to-fill: v.$project-summary-padding * 2;
+  font-size: calc(1em + $padding-to-fill);
+}
+
+@include v.sidebar-layout {
+  .home-layout {
+    flex-direction: row;
+  }
+
+  /**
+   * Absolutely position the summary sidebar to the left of the screen
+   */
+  .me-summary-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: v.$summary-bar-width;
+    z-index: 3;
+    overflow: scroll;
+  }
+
+  .me-summary {
+    min-height: 100%;
+    flex-direction: column;
+    padding: 0 v.$summary-padding;
+    gap: unset;
+  }
+
+  .me-image {
+    flex-direction: row;
+  }
+
+  .me-image img {
+    height: auto;
+    width: 100%;
+    position: relative;
+    margin: 0;
+  }
+
+  /**
+   * Make the background expand just beyond the summary content to behind the stripe
+   */
+  .bg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: v.$summary-bar-width + 2px;
+    z-index: 1;
+    background: theme.$dark;
+  }
+
+  /**
+   * Place the stripe vertically
+   */
+  .stripe {
+    position: absolute;
+    height: unset;
+    bottom: 0;
+    top: 0;
+    left: v.$summary-bar-width;
+    width: v.$stripe-width;
+    z-index: 2;
+    background-repeat: repeat-y;
+    background: url(h.$stripe-vert-url);
+  }
+
+  @include v.tall-height {
+    .me-summary-container {
+      bottom: v.$decoration-height;
+    }
+
+    /**
+     * Add the pixel art decoration
+     */
+    .decoration {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: v.$decoration-width;
+      height: v.$decoration-height;
+      z-index: 2;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: contain;
+      background: url(h.$decoration-url);
+    }
+
+    /**
+     * Decoration image includes the stripe, so this stripe should only go to the top of the decoration
+     */
+    .stripe {
+      bottom: v.$decoration-height;
+    }
+  }
+
+  /**
+   * Fill all remaining space with the projects container
+   */
+  .projects {
+    position: absolute;
+    left: v.$summary-bar-width + v.$stripe-width;
+    right: 0;
+    height: 100%;
+  }
+
+  .social-icons {
+    flex-direction: row;
+  }
+
+  .switched-direction {
+    flex-direction: column;
+  }
+}
+
+@include v.compact-header {
+  /**
+   * Reduce sizes of everything in the summary
+   */
+  .me-summary {
+    padding: 0 v.$summary-compact-padding;
+    flex-direction: column;
+    gap: unset;
+
+    h1 {
+      font-size: v.$summary-compact-h1-text-size;
+
+      p {
+        margin: v.$summary-compact-padding 0;
+      }
+
+      strong {
+        font-size: v.v.$summary-compact-strong-h1-text-size;
+      }
+    }
+
+    .me-image {
+      padding: 0;
+      padding-left: v.$summary-compact-padding;
+    }
+
+    .social-icons {
+      flex-direction: row;
+      font-size: v.v.$summary-compact-social-size;
+    }
+  }
+
+  .switched-direction {
+    justify-content: space-between;
+  }
+}

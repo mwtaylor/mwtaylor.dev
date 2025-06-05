@@ -1,0 +1,200 @@
+@use '../mixins' as *;
+
+/// Padding around elements in the summary section about me
+$summary-padding: 1em;
+/// Padding around elements in the summary section when the page is narrow requiring the section to be compact
+$summary-compact-padding: 0.5em;
+/// Text size in the summary section
+$summary-h1-text-size: 1.5em;
+/// Text size in the summary section when it's compact
+$summary-compact-h1-text-size: 1.2em;
+/// Large text size in the summary section
+$summary-strong-h1-text-size: 2em;
+/// Large text size in the summary section when it's compact
+$summary-compact-strong-h1-text-size: 1.5em;
+/// Size of social icon links in the summary section
+$summary-social-size: 2em;
+/// Size of social icon links in the summary section when it's compact
+$summary-compact-social-size: 1.5em;
+/// Size of the picture of me in the summary section when the section is at the top of the screen, this size can
+/// be overwritten by Javascript when there is enough horizontal space to make it bigger
+$summary-top-bar-me-image-size: 50px;
+/// Width of the summary section when it is on the left side of the page
+$summary-bar-width: 400px;
+/// Height of the pixel art decoration displayed on tall height screens
+$decoration-height: 192px;
+/// Width of the pixel art decoration displayed on tall height screens
+$decoration-width: 472px;
+/// Width of the pixel art stripes
+$stripe-width: 72px;
+
+/// Gap between projects in the grid
+$project-summary-gap: 10px;
+/// Width of one grid column on medium width screens and larger (grid width will fill screen on small width screens)
+$project-summary-grid-width: 200px;
+/// Minimum height of grid rows, can expand if needed to fit all content for a project
+$project-summary-grid-min-height: 250px;
+/// Border size around each project
+$project-summary-border-width: 2px;
+/// Border width dividing sections inside a project
+$project-summary-interior-border-width: 1px;
+/// Padding inside the project summary border
+$project-summary-padding: $project-summary-gap;
+
+/// Small width screens have one grid column
+$small-grid-columns: 1;
+/// Default columns a project will span on small screens
+$small-grid-column-span: 1;
+/// Number of grid columns on medium width screens
+$medium-grid-columns: 4;
+/// Default columns a project will span on medium screens
+$medium-grid-column-span: 1;
+/// Number of grid columns on large width screens
+$large-grid-columns: 6;
+/// Default columns a project will span on large screens
+$large-grid-column-span: 2;
+/// Number of grid columns on xlarge width screens
+$xlarge-grid-columns: 8;
+/// Default columns a project will span on xlarge screens
+$xlarge-grid-column-span: 2;
+
+/// Determine the minimum screen width needed to display a given number of grid columns
+@function -min-width($columns) {
+  @return $summary-bar-width + $stripe-width + $project-summary-gap +
+    ($project-summary-grid-width + $project-summary-gap) * $columns;
+}
+
+/// Width break point between small and medium width screens
+$small-medium-width: -min-width($medium-grid-columns);
+/// Width break point between medium and large width screens
+$medium-large-width: -min-width($large-grid-columns);
+/// Width break point between large and xlarge width screens
+$large-xlarge-width: -min-width($xlarge-grid-columns);
+
+/// Minimum screen width needed to show the summary header at the top of the screen with expanded sizing
+$expanded-header-min-width: 600px;
+
+/// Height break point between short and medium height screens
+$short-medium-height: 730px;
+/// Height break point between medium and tall height screens
+$medium-tall-height: 950px;
+
+/// Media query to check if screen width is small
+@function -small-width() {
+  @return 'width < #{$small-medium-width}';
+}
+/// Media query to check if screen width is medium or large or xlarge
+@function -medium-or-larger-width() {
+  @return 'width >= #{$small-medium-width}';
+}
+/// Media query to check if screen width is small or medium
+@function -medium-or-smaller-width() {
+  @return 'width < #{$medium-large-width}';
+}
+/// Media query to check if screen width is large or xlarge
+@function -large-or-larger-width() {
+  @return 'width >= #{$medium-large-width}';
+}
+/// Media query to check if screen width is small or medium or large
+@function -large-or-smaller-width() {
+  @return 'width < #{$large-xlarge-width}';
+}
+/// Media query to check if screen width is xlarge
+@function -xlarge-width() {
+  @return 'width >= #{$large-xlarge-width}';
+}
+
+/// Media query for small width screens
+/// @content Styles that apply to this screen size
+@mixin small-width {
+  @media (-small-width()) { @content; }
+}
+/// Media query for medium width screens
+/// @content Styles that apply to this screen size
+@mixin medium-width {
+  @media (-medium-or-larger-width()) and (-medium-or-smaller-width()) { @content; }
+}
+/// Media query for medium or larger width screens
+/// @content Styles that apply to this screen size
+@mixin medium-or-larger-width {
+  @media (-medium-or-larger-width()) { @content; }
+}
+/// Media query for large width screens
+/// @content Styles that apply to this screen size
+@mixin large-width {
+  @media (-large-or-larger-width()) and (-large-or-smaller-width()) { @content; }
+}
+/// Media query for large or larger width screens
+/// @content Styles that apply to this screen size
+@mixin large-or-larger-width {
+  @media (-large-or-larger-width()) { @content; }
+}
+/// Media query for xlarge width screens
+/// @content Styles that apply to this screen size
+@mixin xlarge-width {
+  @media (-xlarge-width()) { @content; }
+}
+
+/// Media query to check if screen height is short
+@function -short-height() {
+  @return 'height < #{$short-medium-height}';
+}
+/// Media query to check if screen height is medium or tall
+@function -medium-or-taller-height() {
+  @return 'height >= #{$short-medium-height}';
+}
+/// Media query to check if screen height is short or medium
+@function -medium-or-shorter-height() {
+  @return 'height < #{$medium-tall-height}';
+}
+/// Media query to check if screen height is tall
+@function -tall-height() {
+  @return 'height >= #{$medium-tall-height}';
+}
+
+/// Media query for short height screens
+/// @content Styles that apply to this screen size
+@mixin short-height {
+  @media (-short-height()) { @content; }
+}
+/// Media query for medium height screens
+/// @content Styles that apply to this screen size
+@mixin medium-height {
+  @media (-medium-or-taller-height()) and (-medium-or-shorter-height()) { @content; }
+}
+/// Media query for medium or larger height screens
+/// @content Styles that apply to this screen size
+@mixin medium-or-taller-height {
+  @media (-medium-or-taller-height()) { @content; }
+}
+/// Media query for tall height screens
+/// @content Styles that apply to this screen size
+@mixin tall-height {
+  @media (-tall-height()) { @content; }
+}
+
+/// Decides if the page should have the summary placed in a sidebar layout
+/// @content The styles needed for this layout
+@mixin sidebar-layout {
+  @include not-simplified {
+    @media (orientation: landscape) and (-medium-or-larger-width()) and (-medium-or-taller-height()) {
+      @content;
+    }
+  }
+}
+
+/// Decides if the projects grid should be more than just a vertical list of projects
+/// @content The styles needed for this layout
+@mixin complex-grid {
+  @include not-simplified {
+    @media (-medium-or-larger-width()) and (-medium-or-taller-height()) {
+      @content;
+    }
+  }
+}
+
+/// Decides if the summary header should be compact
+/// @content The styles needed for this layout
+@mixin compact-header {
+  @media (width < $expanded-header-min-width) { @content; }
+}

@@ -27,7 +27,7 @@ function resize_heights_in_flex_rows() {
 }
 
 function set_large_text_layout() {
-    $("body").addClass("large-text");
+    $("body").addClass("simplified");
 }
 
 function handle_large_fonts() {

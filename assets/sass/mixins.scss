@@ -1,0 +1,8 @@
+/// Used for defining styles that add complexity to the page beyond a simple vertical scroll.
+/// Currently the page will only be simplified when the user increases the text size without
+/// increasing the zoom level which can break things like the sidebar summary on the home page.
+/// @content Styles to be placed inside a body block that will be applied when the .simplified
+///          class is not present on body.
+@mixin not-simplified {
+  body:not(.simplified) { @content; }
+}

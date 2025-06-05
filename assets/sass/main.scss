@@ -1,64 +1,46 @@
-@use "vars.scss" as v;
+@use "theme";
+@use "font";
+@use "mixins" as *;
 
-.titillium-web-light {
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.titillium-web-regular {
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.titillium-web-semibold {
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.titillium-web-bold {
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.titillium-web-light-italic {
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.titillium-web-regular-italic {
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.titillium-web-semibold-italic {
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.titillium-web-bold-italic {
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-
+/**
+ * Set the page body to always fill the screen with the void color and set text color and font
+ */
 html, body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: v.$void;
-  color: v.$dark;
+  background-color: theme.$void;
+  color: theme.$dark;
   @extend .titillium-web-regular;
 }
 
+/**
+ * Do not visually distinguish visited links, theme them all the same
+ */
+a:visited, a:link {
+  color: theme.$secondary;
+  text-decoration: none;
+}
+
+/**
+ * Visually distinguish highlighted links with small tweaks to make them standout
+ */
+a:hover, a:focus-visible, a:active {
+  color: theme.$secondary-dark;
+  text-decoration: underline;
+}
+
+/**
+ * Keep all brand icons from Font Awesome in a simple black color
+ */
+a .fa-brands {
+  color: black;
+}
+
+/**
+ * Add the stretched-link class to an a tag to make the link stretch to fill a parent with relative position
+ */
 .stretched-link::after {
   position: absolute;
   top: 0;
@@ -69,6 +51,9 @@ html, body {
   z-index: 1;
 }
 
+/**
+ * Add the inception class to an a tag when it is already inside another stretched link so this a will appear on top
+ */
 .stretched-link.inception {
   z-index: 2;
 }

@@ -1,0 +1,59 @@
+@use '../mixins' as *;
+@use 'vars' as v;
+@use 'projects';
+
+/**
+ * Sets up the projects in a grid layout with defaults for small screens
+ * 1. Set the rows to have a minimum height but can grow if one project needs more space
+ * 2. Space between rows, columns, and around grid edges is all set the same
+ * 3. On small screens all columns have equal width and fill available width
+ */
+.projects-grid {
+  display: grid;
+  grid-template-rows: minmax(v.$project-summary-grid-min-height, auto); /* 1 */
+  grid-gap: v.$project-summary-gap; /* 2 */
+  padding: v.$project-summary-gap; /* 2 */
+  grid-template-columns: repeat(v.$small-grid-columns, 1fr); /* 3 */
+  .project-summary {
+    grid-column: span v.$small-grid-column-span;
+  }
+}
+
+/**
+ * Setup grid for medium and larger screens by setting the number of columns, defining areas, and setting default span
+ */
+@include v.complex-grid {
+  .projects-grid {
+    @include v.medium-width {
+      grid-template-columns: repeat(v.$medium-grid-columns, v.$project-summary-grid-width);
+      grid-template-areas:
+        'cookbook cookbook cookbook cookbook'
+        'dev dev godot godot';
+      .project-summary {
+        grid-column: span v.$medium-grid-column-span;
+      }
+    }
+
+    @include v.large-width {
+      grid-template-columns: repeat(v.$large-grid-columns, v.$project-summary-grid-width);
+      grid-template-areas:
+        'cookbook cookbook cookbook dev dev .'
+        'godot godot . . . .';
+      .project-summary {
+        grid-column: span v.$large-grid-column-span;
+      }
+    }
+
+    @include v.xlarge-width {
+      grid-template-columns: repeat(v.$xlarge-grid-columns, v.$project-summary-grid-width);
+      grid-template-areas:
+        'cookbook cookbook cookbook dev dev . . .'
+        'godot godot . . . . . .';
+      .project-summary {
+        grid-column: span v.$xlarge-grid-column-span;
+      }
+    }
+
+    @include projects.project-grid-names;
+  }
+}
