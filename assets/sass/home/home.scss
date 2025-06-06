@@ -285,7 +285,7 @@
       }
 
       strong {
-        font-size: v.v.$summary-compact-strong-h1-text-size;
+        font-size: v.$summary-compact-strong-h1-text-size;
       }
     }
 
@@ -296,7 +296,7 @@
 
     .social-icons {
       flex-direction: row;
-      font-size: v.v.$summary-compact-social-size;
+      font-size: v.$summary-compact-social-size;
     }
   }
 
